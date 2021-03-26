@@ -1,26 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import { InputBlock } from "./components/InputBlock";
+import "./App.css";
+import { Column } from "./components/Column";
 
-function App() {
+const App = () => {
+  const [columns, setColumns] = useState<string[]>([]);
+
+  const addNewColumn = (name: string) => {
+    setColumns((columns) => [...columns, name]);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <InputBlock
+        onClickAction={addNewColumn}
+        placeholder="Enter Column Name"
+        actionText="+ Column"
+      />
+      <div className={"column-container"}>
+        {columns.map((column) => (
+          <Column columnName={column} />
+        ))}
+      </div>
     </div>
   );
-}
+};
 
 export default App;

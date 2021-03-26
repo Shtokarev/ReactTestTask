@@ -1,0 +1,26 @@
+.block {
+  display: flex;
+  flex-direction: column;
+  min-height: 25rem;
+  border: 1px solid;
+  padding: 1rem;
+  margin-right: 2rem;
+
+  :last-child {
+    margin-top: auto;
+  }
+}
+
+.title {
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+
+.rowContainer {
+  display: flex;
+  flex-direction: column;
+
+  & > span {
+    margin: 0 0 1rem 0.5rem;
+  }
+}
