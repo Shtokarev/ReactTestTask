@@ -1,4 +1,5 @@
 import React, { useState, ChangeEvent } from "react";
+import { Button } from "../Button";
 import styles from "./InputBlock.module.scss";
 
 interface InputBlockProps {
@@ -11,11 +12,11 @@ export const InputBlock: React.FC<InputBlockProps> = (props) => {
   const { onClickAction, placeholder, actionText } = props;
   const [inputText, setInputText] = useState("");
 
-  const onChangeInputHandler = (event: ChangeEvent<HTMLInputElement>) => {
+  const handleOnChangeInput = (event: ChangeEvent<HTMLInputElement>) => {
     setInputText(event.target.value);
   };
 
-  const onClickHandler = () => {
+  const handleOnClick = () => {
     onClickAction(inputText);
     setInputText("");
   };
@@ -25,18 +26,16 @@ export const InputBlock: React.FC<InputBlockProps> = (props) => {
       <input
         name="inputText"
         type="text"
-        onChange={onChangeInputHandler}
+        onChange={handleOnChangeInput}
         placeholder={placeholder}
         value={inputText}
         className={styles.textInput}
       />
-      <button
-        onClick={onClickHandler}
+      <Button
+        title={actionText}
+        onClick={handleOnClick}
         disabled={!inputText.length}
-        className={styles.button}
-      >
-        {actionText}
-      </button>
+      />
     </div>
   );
 };

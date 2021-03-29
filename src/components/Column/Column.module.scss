@@ -1,4 +1,5 @@
 .block {
+  position: relative;
   display: flex;
   flex-direction: column;
   min-height: 25rem;
@@ -6,9 +7,15 @@
   padding: 1rem;
   margin-right: 2rem;
 
-  :last-child {
+  & > :last-child {
     margin-top: auto;
   }
+}
+
+.deleteColumnButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }
 
 .title {
@@ -19,8 +26,4 @@
 .rowContainer {
   display: flex;
   flex-direction: column;
-
-  & > span {
-    margin: 0 0 1rem 0.5rem;
-  }
 }

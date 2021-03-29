@@ -1,0 +1,12 @@
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0;
+}
+
+.deleteRowButton {
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+}
